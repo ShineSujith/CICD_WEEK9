@@ -21,4 +21,8 @@ public class PersonService {
         // For simplicity, we return a dummy person here
         return personRepository.findByEmployeeId(employeeId);
     }
+
+    public void deletePerson(Long id) {
+        personRepository.deleteById(id);
+    }
 }
