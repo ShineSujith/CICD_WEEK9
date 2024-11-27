@@ -24,6 +24,4 @@ public class Address {
     @NotBlank
     private String zipCode;
 
-    @OneToOne(mappedBy = "address")
-    private Person person;
 }
