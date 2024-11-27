@@ -1,20 +1,27 @@
 package ie.atu.week11example;
 
+import org.hibernate.usertype.UserCollectionType;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
 public class PersonService {
-    private final PersonRepository personRepository;
 
-    public PersonService(PersonRepository personRepository) {
+    private PaymentClient paymentClient;
+
+    private PersonRepository personRepository;
+
+    public PersonService(PaymentClient paymentClient, PersonRepository personRepository) {
+        this.paymentClient = paymentClient;
         this.personRepository = personRepository;
     }
 
     // Placeholder method to save a person (add to Db in the next two weeks)
     public void savePerson(Person person) {
-        personRepository.save(person);
+        System.out.println(paymentClient.makePayment(person));
+        paymentClient.makePayment(person);
     }
 
     // Placeholder method to retrieve a person by employeeId
